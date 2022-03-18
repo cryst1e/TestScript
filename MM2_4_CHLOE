@@ -166,6 +166,11 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 		if Key.KeyCode == Enum.KeyCode.RightControl then
 			SaveSettings()
 			PlayerList.Enabled = not PlayerList.Enabled
+			if _G.Visible == true then
+				_G.Visible = false
+			else
+				_G.Visible = true
+			end
 		end
 	end)
 
