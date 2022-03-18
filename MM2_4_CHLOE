@@ -146,43 +146,22 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	while wait() do
 		for i,v in pairs(game:GetService("Players"):GetChildren()) do
 			local Character = v.Character or v.CharacterAdded:Wait()
-			if Character:FindFirstChild("Chloe_MM2_ESP") ~= nil then
-				Character.HumanoidRootPart["Chloe_MM2_ESP"].CFrame = Character.HumanoidRootPart.CFrame
-			else
-				local ESPPart = Instance.new("Part")
-				ESPPart.Parent = Character.HumanoidRootPart
-				ESPPart.CanCollide = false
-				ESPPart.Material = Enum.Material.Plastic
-				ESPPart.Size = Vector3.new(4, 5.75, 2)
-				ESPPart.Transparency = 0.5
-				ESPPart.BrickColor = BrickColor.new("Lime green")
-				ESPPart.Anchored = false
-				ESPPart.Name = "Chloe_MM2_ESP"
-				ESPPart.CFrame = Character.HumanoidRootPart.CFrame
-				print("ESP Part Has Created Successfully for - "..Character.Name.." | 2")
-			end
 
 			if v:WaitForChild("Backpack"):FindFirstChild("Gun") then
 				Sheriff_Name.Text = v.Name
-				Character.HumanoidRootPart["Chloe_MM2_ESP"].BrickColor = BrickColor.new("Cyan")
+				
 			elseif Character:FindFirstChild("Gun") then
 				Sheriff_Name.Text = v.Name
-				Character.HumanoidRootPart["Chloe_MM2_ESP"].BrickColor = BrickColor.new("Cyan")
+				
 			elseif v:WaitForChild("Backpack"):FindFirstChild("Knife") then
 				Murder_Name.Text = v.Name
-				Character["Chloe_MM2_ESP"].BrickColor = BrickColor.new("Red")
+			
 			elseif Character:FindFirstChild("Knife") then
 				Murder_Name.Text = v.Name
-				Character.HumanoidRootPart["Chloe_MM2_ESP"].BrickColor = BrickColor.new("Cyan")
 			else
-				Character.HumanoidRootPart["Chloe_MM2_ESP"].BrickColor = BrickColor.new("Lime green")
+				
 			end
 		end
-	end
-
-	while wait() do
-		local Character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-		Character.HumanoidRootPart["Chloe_MM2_ESP"].CFrame = Character.HumanoidRootPart.CFrame
-		print(Character.HumanoidRootPart["Chloe_MM2_ESP"].CFrame)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SkyLi000/TestScript/main/MM2_4_CHLOE"))()
 	end
 end
