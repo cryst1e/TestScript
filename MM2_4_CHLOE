@@ -30,7 +30,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 		print("Loading Visible...")
 		if (readfile and isfile and isfile(FileName)) then
 			_G.Visible = HttpService:JSONDecode(readfile(FileName))
-			print(_G.Visible.." | Loaded")
+			print(tostring(_G.Visible).." | Loaded")
 		end
 		print("Loaded!")
 	end
