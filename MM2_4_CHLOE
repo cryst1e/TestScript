@@ -32,6 +32,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 			_G.Visible = HttpService:JSONDecode(readfile(FileName))
 			print(_G.Visible.." | Loaded")
 		end
+		print("Loaded!")
 	end
 
 	function SaveSettings()
@@ -40,7 +41,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 		if (writefile) then
 			json = HttpService:JSONEncode(_G.Visible)
 			writefile(FileName, json)
-			print(_G.Visible.." | Saved")
+			print(tostring(_G.Visible).." | Saved")
 		end
 	end
 
