@@ -22,7 +22,28 @@ if game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("PlayerList
 end
 
 if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VALID == true then
-
+	local HttpService = game:GetService("HttpService")
+	local FileName = "loadFileName"
+	_G.Settings = {
+		["Visibility"] = true,
+	}
+	
+	function LoadSettings()
+    		if (readfile and isfile and isfile(FileName)) then
+        		_G.Settings = HttpService:JSONDecode(readfile(FileName))
+    		end
+	end
+	
+	function SaveSettings()
+    		local json
+    		if (writefile) then
+        		json = HttpService:JSONEncode(_G.Settings)
+        		writefile(FileName, json)
+    		end
+	end
+	
+	LoadSettings()
+	
 	local PlayerList = Instance.new("ScreenGui")
 	local Back = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -41,6 +62,12 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	PlayerList.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	PlayerList.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	PlayerList.ResetOnSpawn = false
+	
+	if _G.Settings.Visibility == false then
+		PlayerList.Enabled = false
+	else
+		PlayerList.Enabled = true
+	end
 
 	Back.Name = "Back"
 	Back.Parent = PlayerList
@@ -144,6 +171,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 
 	end
 	while wait() do
+		SaveSettings()
 		for i,v in pairs(game:GetService("Players"):GetChildren()) do
 			local Character = v.Character or v.CharacterAdded:Wait()
 
