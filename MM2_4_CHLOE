@@ -23,27 +23,29 @@ end
 
 if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VALID == true then
 	local HttpService = game:GetService("HttpService")
-	local FileName = "loadFileName"
+	local FileName = "MurderMystery2.json"
 	_G.Visible = true
-	
+
 	function LoadSettings()
 		print("Loading Visible...")
-    		if (readfile and isfile and isfile("MurderMystery2_Chloe.json")) then
-        		_G.Visible = HttpService:JSONDecode(readfile("MurderMystery2_Chloe.json"))
-    		end
+		if (readfile and isfile and isfile(FileName)) then
+			_G.Visible = HttpService:JSONDecode(readfile(FileName))
+			print(_G.Visible.." | Loaded")
+		end
 	end
-	
+
 	function SaveSettings()
 		print("Saving Visible...")
-    		local json
-    		if (writefile) then
-        		json = HttpService:JSONEncode(_G.Visible)
-        		writefile("MurderMystery2_Chloe.json", json)
-    		end
+		local json
+		if (writefile) then
+			json = HttpService:JSONEncode(_G.Visible)
+			writefile(FileName, json)
+			print(_G.Visible.." | Saved")
+		end
 	end
-	
+
 	LoadSettings()
-	
+
 	local PlayerList = Instance.new("ScreenGui")
 	local Back = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -62,12 +64,6 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	PlayerList.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	PlayerList.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	PlayerList.ResetOnSpawn = false
-	
-	if _G.Visible == false then
-		PlayerList.Enabled = false
-	else
-		PlayerList.Enabled = true
-	end
 
 	Back.Name = "Back"
 	Back.Parent = PlayerList
@@ -160,7 +156,11 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	Credit.TextScaled = true
 	Credit.TextSize = 14.000
 	Credit.TextWrapped = true
-
+	
+	if _G.Visible == false then
+		PlayerList.Enabled = false
+	end
+	
 	UIS.InputBegan:Connect(function(Key)
 		if Key.KeyCode == Enum.KeyCode.RightControl then
 			SaveSettings()
@@ -177,20 +177,20 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 
 			if v:WaitForChild("Backpack"):FindFirstChild("Gun") then
 				Sheriff_Name.Text = v.Name
-				
+
 			elseif Character:FindFirstChild("Gun") then
 				Sheriff_Name.Text = v.Name
-				
+
 			elseif v:WaitForChild("Backpack"):FindFirstChild("Knife") then
 				Murder_Name.Text = v.Name
-			
+
 			elseif Character:FindFirstChild("Knife") then
 				Murder_Name.Text = v.Name
 			else
-				
+
 			end
 		end
-        	wait(2.5)
-        	loadstring(game:HttpGet("https://raw.githubusercontent.com/SkyLi000/TestScript/main/MM2_4_CHLOE"))()
+		wait(2.5)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/SkyLi000/TestScript/main/MM2_4_CHLOE"))()
 	end
 end
