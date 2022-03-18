@@ -162,6 +162,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 				
 			end
 		end
+	game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("PlayerList"):Destroy()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/SkyLi000/TestScript/main/MM2_4_CHLOE"))()
 	end
 end
