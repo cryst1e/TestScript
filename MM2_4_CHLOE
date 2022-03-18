@@ -31,6 +31,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	function LoadSettings()
     		if (readfile and isfile and isfile(FileName)) then
         		_G.Settings = HttpService:JSONDecode(readfile("MurderMystery2_Chloe.json"))
+			print("Loaded Settings As: "_G.Settings)
     		end
 	end
 	
@@ -39,6 +40,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
     		if (writefile) then
         		json = HttpService:JSONEncode(_G.Settings)
         		writefile("MurderMystery2_Chloe.json", json)
+			print("Saved Settings As: ".._G.Settings)
     		end
 	end
 	
@@ -163,6 +165,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 
 	UIS.InputBegan:Connect(function(Key)
 		if Key.KeyCode == Enum.KeyCode.RightControl then
+			SaveSettings()
 			PlayerList.Enabled = not PlayerList.Enabled
 		end
 	end)
