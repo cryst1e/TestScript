@@ -1,6 +1,6 @@
 rconsolename("Murder Mystery 2 Show Player")
 
-while wait() do
+while wait(5) do
   rconsoleclear()
   rconsoleprint("@@YELLOW@@")
   rconsoleprint("========================================\n")
@@ -18,9 +18,6 @@ while wait() do
 			elseif Character:FindFirstChild("Knife") then
 				rconsoleprint("@@RED@@")
         rconsoleprint("Murder: "..v.Name.."\n")
-      else
-        rconsoleprint("@@GREEN@@")
-        rconsoleprint("Innocents: "..v.Name.."\n")
 			end
 		end
 		rconsoleprint("@@YELLOW@@")
