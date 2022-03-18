@@ -24,23 +24,21 @@ end
 if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VALID == true then
 	local HttpService = game:GetService("HttpService")
 	local FileName = "loadFileName"
-	_G.Settings = {
-		["Visibility"] = true,
-	}
+	_G.Visible = true
 	
 	function LoadSettings()
     		if (readfile and isfile and isfile(FileName)) then
-        		_G.Settings = HttpService:JSONDecode(readfile("MurderMystery2_Chloe.json"))
-			print("Loaded Settings As: "_G.Settings)
+        		_G.Visible = HttpService:JSONDecode(readfile("MurderMystery2_Chloe.json"))
+			print("Loaded Settings As: "_G.Visible
     		end
 	end
 	
 	function SaveSettings()
     		local json
     		if (writefile) then
-        		json = HttpService:JSONEncode(_G.Settings)
+        		json = HttpService:JSONEncode(_G.Visible)
         		writefile("MurderMystery2_Chloe.json", json)
-			print("Saved Settings As: ".._G.Settings)
+			print("Saved Settings As: ".._G.Visible)
     		end
 	end
 	
@@ -65,7 +63,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	PlayerList.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	PlayerList.ResetOnSpawn = false
 	
-	if _G.Settings.Visibility == false then
+	if _G.Visible == false then
 		PlayerList.Enabled = false
 	else
 		PlayerList.Enabled = true
