@@ -30,7 +30,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 	
 	function LoadSettings()
     		if (readfile and isfile and isfile(FileName)) then
-        		_G.Settings = HttpService:JSONDecode(readfile(FileName))
+        		_G.Settings = HttpService:JSONDecode(readfile("MurderMystery2_Chloe.json"))
     		end
 	end
 	
@@ -38,7 +38,7 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
     		local json
     		if (writefile) then
         		json = HttpService:JSONEncode(_G.Settings)
-        		writefile(FileName, json)
+        		writefile("MurderMystery2_Chloe.json", json)
     		end
 	end
 	
