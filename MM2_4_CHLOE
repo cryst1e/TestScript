@@ -170,7 +170,6 @@ if game.PlaceId == 142823291 and _G.MM2_CHLOE__SHOW__MnSPLRUI_ACCESS_GRANTED_VAL
 
 	end
 	while wait() do
-		SaveSettings()
 		for i,v in pairs(game:GetService("Players"):GetChildren()) do
 			local Character = v.Character or v.CharacterAdded:Wait()
 
