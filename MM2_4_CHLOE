@@ -1,7 +1,9 @@
 local player = game.Players.LocalPlayer
 local yourroastlol = {"Hi im the worst mm2 player plz free stuff ):"}
-
+_G.mmm = true
 
 while wait(5) do
-    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(yourroastlol[math.random(1,#yourroastlol)], "All")
+    if _G.mmm then
+     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(yourroastlol[math.random(1,#yourroastlol)], "All")
+    end
 end
