@@ -1,6 +1,10 @@
 local Library = {}
 local UIS = game:GetService("UserInputService")
 
+if game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("RalleyUI") then
+    game.Players.LocalPlayer:WaitForChild("PlayerGui").RalleyUI:Destroy()
+end
+
 function Library:Window(Name)
     local RalleyUI = Instance.new("ScreenGui")
     local Background = Instance.new("Frame")
@@ -12,6 +16,7 @@ function Library:Window(Name)
     RalleyUI.Name = "RalleyUI"
     RalleyUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     RalleyUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    RalleyUI.ResetOnSpawn = false
 
     Background.Name = "Background"
     Background.Parent = RalleyUI
@@ -29,6 +34,10 @@ function Library:Window(Name)
     Draggable.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Draggable.Position = UDim2.new(0.5, 0, 0.0477016307, 0)
     Draggable.Size = UDim2.new(1.00000012, 0, 0.100000001, 0)
+
+    Draggable.Active = true
+    Draggable.Selectable = true
+    Draggable.Draggable = true
 
     UICorner_2.Parent = Draggable
 
