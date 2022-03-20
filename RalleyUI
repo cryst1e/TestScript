@@ -25,6 +25,10 @@ function Library:Window(Name)
     Background.Position = UDim2.new(0.5, 0, 0.5, 0)
     Background.Size = UDim2.new(0.579379559, 0, 0.699999988, 0)
 
+    Background.Active = true
+    Background.Selectable = true
+    Background.Draggable = true
+
     UICorner.Parent = Background
 
     Draggable.Name = "Draggable"
@@ -34,10 +38,6 @@ function Library:Window(Name)
     Draggable.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Draggable.Position = UDim2.new(0.5, 0, 0.0477016307, 0)
     Draggable.Size = UDim2.new(1.00000012, 0, 0.100000001, 0)
-
-    Draggable.Active = true
-    Draggable.Selectable = true
-    Draggable.Draggable = true
 
     UICorner_2.Parent = Draggable
 
