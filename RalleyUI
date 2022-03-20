@@ -87,7 +87,7 @@ function Library:Window(Name)
         TextButton.TextScaled = true
         TextButton.TextSize = 14.000
         TextButton.TextWrapped = true
-        TextButton.Text = Text
+        TextButton.Text = Text or "Unnamed RalleyUI Button"
 
         TextButton.MouseButton1Down:Connect(function()
             pcall(Callback)
