@@ -1,0 +1,96 @@
+local Library = {}
+local UIS = game:GetService("UserInputService")
+
+function Library:Window(Name)
+    local RalleyUI = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local Draggable = Instance.new("Frame")
+    local UICorner_2 = Instance.new("UICorner")
+    local UIName = Instance.new("TextLabel")
+
+    RalleyUI.Name = "RalleyUI"
+    RalleyUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    RalleyUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    Background.Name = "Background"
+    Background.Parent = RalleyUI
+    Background.AnchorPoint = Vector2.new(0.5, 0.5)
+    Background.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Background.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Background.Size = UDim2.new(0.579379559, 0, 0.699999988, 0)
+
+    UICorner.Parent = Background
+
+    Draggable.Name = "Draggable"
+    Draggable.Parent = Background
+    Draggable.AnchorPoint = Vector2.new(0.5, 0.5)
+    Draggable.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Draggable.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Draggable.Position = UDim2.new(0.5, 0, 0.0477016307, 0)
+    Draggable.Size = UDim2.new(1.00000012, 0, 0.100000001, 0)
+
+    UICorner_2.Parent = Draggable
+
+    UIName.Name = "UIName"
+    UIName.Parent = Background
+    UIName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    UIName.BackgroundTransparency = 1.000
+    UIName.Position = UDim2.new(0.312043786, 0, 0, 0)
+    UIName.Size = UDim2.new(0.408759117, 0, 0.100000001, 0)
+    UIName.Font = Enum.Font.FredokaOne
+    UIName.TextColor3 = Color3.fromRGB(255, 255, 255)
+    UIName.TextScaled = true
+    UIName.TextSize = 14.000
+    UIName.TextWrapped = true
+    UIName.Text = Name
+
+    UIS.InputBegan:Connect(function(Input)
+        if Input.KeyCode == Enum.KeyCode.RightShift then
+            RalleyUI.Enabled = not RalleyUI.Enabled
+        end
+    end)
+
+    local Tab = {}
+
+    local ButtonFrame = Instance.new("Frame")
+
+    ButtonFrame.Name = "ButtonFrame"
+    ButtonFrame.Parent = Background
+    ButtonFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ButtonFrame.BackgroundTransparency = 1.000
+    ButtonFrame.Position = UDim2.new(0.0109488834, 0, 0.121112034, 0)
+    ButtonFrame.Size = UDim2.new(0, 623, 0, 319)
+
+    function Tab:Button(Text, Callback)
+        local Callback = Callback or function() end
+        local TextButton = Instance.new("TextButton")
+        local UICorner_3 = Instance.new("UICorner")
+        local UIGridLayout = Instance.new("UIGridLayout")
+
+        TextButton.Parent = ButtonFrame
+        TextButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        TextButton.BorderColor3 = Color3.fromRGB(30, 30, 30)
+        TextButton.Position = UDim2.new(0.0182149354, 0, 0.00304878037, 0)
+        TextButton.Size = UDim2.new(0, 200, 0, 50)
+        TextButton.Font = Enum.Font.GothamSemibold
+        TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextButton.TextScaled = true
+        TextButton.TextSize = 14.000
+        TextButton.TextWrapped = true
+        TextButton.Text = Text
+
+        TextButton.MouseButton1Down:Connect(function()
+            pcall(Callback)
+        end)
+
+        UICorner_3.Parent = TextButton
+
+        UIGridLayout.Parent = ButtonFrame
+        UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIGridLayout.CellSize = UDim2.new(0, 150, 0, 45)
+    end
+    return Tab
+end
+
+return Library
