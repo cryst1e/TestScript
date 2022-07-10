@@ -32,7 +32,7 @@ function UILibrary.Notify(Text, Durartion, TweenSpeed)
 	TextButton.TextSize = 14.000
 	TextButton.TextWrapped = true
 	
-	wait(Duration)
+	wait(1)
 	
 	Notification:Destroy()
 end
