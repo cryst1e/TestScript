@@ -1,4 +1,4 @@
-syn.queue_on_teleport("loadstring('https://raw.githubusercontent.com/SkyLi000/TestScript/main/AutoWinSWBW.lua')()")
+syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/SkyLi000/TestScript/main/AutoWinSWBW.lua'))()")
 
 local vu = game:GetService("VirtualUser")
 vu:CaptureController()
