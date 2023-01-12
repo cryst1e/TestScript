@@ -271,7 +271,7 @@ while wait(_G.boardUpdateInterval) do
 
         if _G.autoUpdateGoal then
             print("Auto Updating Goal....")
-            event:FireServer(_G.Text .." <stroke color="#2A0030" thickness="5"><font size="25"><font color= "#445094"><font face="Bangers">".. plast .. " / " .. tostring(tonumber(plast) + _G.increaseGoalBy.."</font></font></font></stroke>"), "booth")
+            event:FireServer([[ <stroke color="#2A0030" thickness="5"><font size="25"><font color= "#445094"><font face="Bangers">]].. plast .. " / " .. tostring(tonumber(plast) + _G.increaseGoalBy.."</font></font></font></stroke>"), "booth")
             loadstring(_G.onDonateLoadString)()
         else
             event:FireServer(_G.Text .. plast .. " / " .. _G.goal, "booth")
