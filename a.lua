@@ -26,7 +26,7 @@ if _G.hopAtPlayerAmount > 0 then
                     _G.autoUpdateGoal = ]] .. tostring(_G.autoUpdateGoal) .. [[
                     _G.increaseGoalBy = ]] .. tostring(_G.increaseGoalBy) .. [[
                     _G.goal = ]] .. '"' .. _G.goal .. '"' .. [[
-                    _G.Text = ]] .. '[[' .. _G.Text .. ']]' .. [[
+                    _G.text = ]] .. '[[' .. _G.text .. ']]' .. [[
         
                     _G.saythanks = ]] .. tostring(_G.saythanks) .. [[
                     _G.thanksText = ]] .. '"' .. _G.thanksText .. '"' .. [[
@@ -109,7 +109,7 @@ if _G.hopInterval > 0 then
             _G.autoUpdateGoal = ]] .. tostring(_G.autoUpdateGoal) .. [[
             _G.increaseGoalBy = ]] .. tostring(_G.increaseGoalBy) .. [[
             _G.goal = ]] .. '"' .. _G.goal .. '"' .. [[
-            _G.Text = ]] .. '[[' .. _G.Text .. ']]' .. [[
+            _G.text = ]] .. '[[' .. _G.text .. ']]' .. [[
             _G.saythanks = ]] .. tostring(_G.saythanks) .. [[
             _G.thanksText = ]] .. '"' .. _G.thanksText .. '"' .. [[
             _G.thanksWaitTime = ]] .. tostring(_G.thanksWaitTime) .. [[
@@ -310,9 +310,9 @@ local llast
 
 if _G.autoUpdateGoal then
 	print("Auto Updating Goal....")
-	event:FireServer(_G.Text .. plast .. " / " .. tostring(tonumber(plast) + _G.increaseGoalBy), "booth")
+	event:FireServer(_G.text .. plast .. " / " .. tostring(tonumber(plast) + _G.increaseGoalBy), "booth")
 else
-	event:FireServer(_G.Text .. plast .. " / " .. _G.goal, "booth")
+	event:FireServer(_G.text .. plast .. " / " .. _G.goal, "booth")
 end
 
 while wait(_G.boardUpdateInterval) do
